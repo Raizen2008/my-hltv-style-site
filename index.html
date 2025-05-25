@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <title>Статистика игроков</title>
+  <title>HLTV Статистика</title>
 
   <!-- DataTables CSS -->
   <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" />
@@ -12,12 +12,30 @@
 
   <!-- DataTables JS -->
   <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    table.dataTable {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+  </style>
 </head>
 <body>
 
-  <h1>Статистика игроков</h1>
+  <h1>Таблица игроков</h1>
 
-  <table id="playersTable" class="display" style="width:100%">
+  <table id="myTable" class="display" style="width:100%">
     <thead>
       <tr>
         <th>Игрок</th>
@@ -44,7 +62,12 @@
 
   <script>
     $(document).ready(function () {
-      $('#playersTable').DataTable();
+      $('#myTable').DataTable({
+        paging: true,
+        searching: true,
+        ordering: true,
+        order: [[1, 'desc']]  // сортировка по KD по убыванию
+      });
     });
   </script>
 
