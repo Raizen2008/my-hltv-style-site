@@ -29,26 +29,12 @@
       background-attachment: fixed;
     }
 
-    /* Красивый блок заголовка Статистика игроков */
-    .stats-header {
-      max-width: 600px;
-      margin: 0 auto 40px auto;
-      padding: 20px 40px;
-      background: linear-gradient(135deg, #5865F2 0%, #2C2F7C 100%);
-      border-radius: 16px;
-      box-shadow:
-        0 0 20px rgba(88, 101, 242, 0.7),
-        0 4px 15px rgba(0, 0, 0, 0.8);
+    h1 {
       text-align: center;
-      color: #fff;
-      font-size: 2.7rem;
-      font-weight: 900;
-      letter-spacing: 2px;
-      font-family: 'Segoe UI Black', Tahoma, Geneva, Verdana, sans-serif;
-      user-select: none;
-      text-shadow:
-        0 0 8px rgba(255, 255, 255, 0.3),
-        0 2px 6px rgba(0, 0, 0, 0.5);
+      font-weight: 700;
+      margin-bottom: 40px;
+      text-shadow: 0 0 8px rgba(0,0,0,0.8);
+      font-size: 2.5rem;
     }
 
     /* Таблица игроков */
@@ -130,37 +116,11 @@
       box-shadow: 0 8px 18px rgba(71,82,196,0.9);
     }
 
-    /* Табличка MVP */
-    .mvp-badge {
-      max-width: 200px;
-      margin: 0 auto 50px auto;
-      background: #5865F2;
-      color: white;
-      font-weight: 800;
-      font-size: 1.5rem;
-      padding: 12px 24px;
-      border-radius: 40px;
-      text-align: center;
-      box-shadow:
-        0 0 15px #5865F2,
-        0 4px 10px rgba(0,0,0,0.7);
-      user-select: none;
-      letter-spacing: 0.1em;
-      font-family: 'Segoe UI Black', Tahoma, Geneva, Verdana, sans-serif;
-    }
-    .mvp-badge span {
-      display: block;
-      font-size: 2.1rem;
-      margin-top: 6px;
-      color: #ffdd57;
-      text-shadow: 0 0 10px #ffdd57;
-    }
-
   </style>
 </head>
 <body>
 
-  <div class="stats-header">Статистика игроков</div>
+  <h1>Статистика игроков</h1>
 
   <table id="playerTable" class="display responsive nowrap" style="width:100%">
     <thead>
@@ -187,29 +147,23 @@
     </tbody>
   </table>
 
-  <!-- Табличка MVP -->
-  <div class="mvp-badge" aria-label="MVP игрока">
-    MVP<br>
-    <span>Ylllratui2014</span>
-  </div>
-
   <h1>Турниры</h1>
   <div class="tournaments">
     <div class="tournament-card" tabindex="0">
       <div class="tournament-title">Major 2025 2x2</div>
-      <div class="tournament-details">Участники: 10</div>
+      <div class="tournament-details">Участников: 10</div>
     </div>
     <div class="tournament-card" tabindex="0">
       <div class="tournament-title">Summer Showdown 2025</div>
-      <div class="tournament-details">Участники: 15</div>
+      <div class="tournament-details">Участников: 15</div>
     </div>
     <div class="tournament-card" tabindex="0">
       <div class="tournament-title">Masters 2025 1x1</div>
-      <div class="tournament-details">Участники: 8</div>
+      <div class="tournament-details">Участников: 8</div>
     </div>
     <div class="tournament-card" tabindex="0">
       <div class="tournament-title">Winter Clash 2025</div>
-      <div class="tournament-details">Участники: 20</div>
+      <div class="tournament-details">Участников: 20</div>
     </div>
   </div>
 
