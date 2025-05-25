@@ -1,0 +1,31 @@
+{
+  "nickname": "Adequatchi",
+  "avatar": "images/adequatchi_avatar.png",
+  "stats": {
+    "K": 150,
+    "D": 100,
+    "KD": 1.5,
+    "HeadshotPercent": 45,
+    "MVP": 12,
+    "Wins": 20,
+    "Losses": 10,
+    "FavoriteMap": "Mirage",
+    "FavoriteWeapon": "AK-47"
+  },
+  "matchHistory": [
+    {
+      "date": "2025-05-20",
+      "map": "Dust2",
+      "kills": 20,
+      "deaths": 10,
+      "result": "Win"
+    },
+    {
+      "date": "2025-05-22",
+      "map": "Mirage",
+      "kills": 18,
+      "deaths": 12,
+      "result": "Loss"
+    }
+  ]
+}
