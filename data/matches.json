@@ -1,1 +1,14 @@
+[
+  {
+    "id": "match1",
+    "date": "2025-05-20",
+    "teams": ["Адекватычи", "Противники"],
+    "map": "Dust2",
+    "score": "16-14",
+    "players_stats": {
+      "raizen": {"kills": 25, "deaths": 15, "hs": 10, "mvp": 1},
+      "kisik4k": {"kills": 10, "deaths": 20, "hs": 3, "mvp": 0}
+    }
+  }
+]
 
