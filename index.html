@@ -2,46 +2,50 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <title>HLTV Статистика</title>
+  <title>Статистика игроков</title>
 
   <!-- DataTables CSS -->
-  <link rel="stylesheet" href="https://cdn.datatables.net/2.3.1/css/dataTables.dataTables.min.css" />
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" />
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
 
   <!-- DataTables JS -->
-  <script src="https://cdn.datatables.net/2.3.1/js/dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
 </head>
 <body>
 
-  <h1>Таблица игроков</h1>
+  <h1>Статистика игроков</h1>
 
-  <table id="myTable">
+  <table id="playersTable" class="display" style="width:100%">
     <thead>
       <tr>
-        <th>Имя</th>
-        <th>Рейтинг</th>
-        <th>Убийства</th>
-        <th>Смерти</th>
+        <th>Игрок</th>
+        <th>KD</th>
+        <th>Матчи</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>Игрок1</td>
-        <td>1.25</td>
-        <td>200</td>
-        <td>150</td>
-      </tr>
-      <tr>
-        <td>Игрок2</td>
-        <td>1.10</td>
-        <td>180</td>
-        <td>170</td>
-      </tr>
+      <tr><td>Raizen</td><td>1.58</td><td>4</td></tr>
+      <tr><td>Kisik4k</td><td>0.44</td><td>4</td></tr>
+      <tr><td>ggg</td><td>0.71</td><td>3</td></tr>
+      <tr><td>Mikula</td><td>1.27</td><td>1</td></tr>
+      <tr><td>D3adl1ne</td><td>0.57</td><td>2</td></tr>
+      <tr><td>幸运</td><td>1.00</td><td>2</td></tr>
+      <tr><td>sazuke</td><td>0.52</td><td>2</td></tr>
+      <tr><td>MelHam</td><td>0.82</td><td>3</td></tr>
+      <tr><td>Lorsky</td><td>0.55</td><td>3</td></tr>
+      <tr><td>Ylllratui2014</td><td>2.52</td><td>4</td></tr>
+      <tr><td>crystallake</td><td>1.09</td><td>3</td></tr>
+      <tr><td>YlllratuiRak</td><td>2.33</td><td>2</td></tr>
+      <tr><td>Silex</td><td>0.48</td><td>2</td></tr>
     </tbody>
   </table>
 
   <script>
-    // Инициализация DataTables для таблицы #myTable
-    let table = new DataTable('#myTable');
+    $(document).ready(function () {
+      $('#playersTable').DataTable();
+    });
   </script>
 
 </body>
