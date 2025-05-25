@@ -1,69 +1,20 @@
 [
   {
+    "id": "raizen",
     "nickname": "Raizen",
+    "avatar": "raizen.png",
     "kd": 1.58,
-    "matches": 4
-  },
-  {
-    "nickname": "Kisik4k",
-    "kd": 0.44,
-    "matches": 4
-  },
-  {
-    "nickname": "ggg",
-    "kd": 0.71,
-    "matches": 3
-  },
-  {
-    "nickname": "Mikula",
-    "kd": 1.27,
-    "matches": 1
-  },
-  {
-    "nickname": "D3adl1ne",
-    "kd": 0.57,
-    "matches": 2,
-    "note": "замена"
-  },
-  {
-    "nickname": "幸运",
-    "kd": 1.0,
-    "matches": 2
-  },
-  {
-    "nickname": "sazuke",
-    "kd": 0.52,
-    "matches": 2
-  },
-  {
-    "nickname": "MelHam",
-    "kd": 0.82,
-    "matches": 3
-  },
-  {
-    "nickname": "Lorsky",
-    "kd": 0.55,
-    "matches": 3
-  },
-  {
-    "nickname": "Ylllratui2014",
-    "kd": 2.52,
-    "matches": 4
-  },
-  {
-    "nickname": "crystallake",
-    "kd": 1.09,
-    "matches": 3
-  },
-  {
-    "nickname": "YlllratuiRak",
-    "kd": 2.33,
-    "matches": 2
-  },
-  {
-    "nickname": "Silex",
-    "kd": 0.48,
-    "matches": 2
+    "headshot": 45,
+    "mvp": 3,
+    "wins": 3,
+    "losses": 1,
+    "favorite_map": "Dust2",
+    "favorite_weapon": "AWP",
+    "matches_played": [
+      "match1",
+      "match2",
+      "match3",
+      "match4"
+    ]
   }
 ]
-
