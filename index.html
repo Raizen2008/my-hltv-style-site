@@ -13,6 +13,9 @@
   <!-- DataTables JS -->
   <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
 
+  <!-- Chart.js для графиков -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -54,16 +57,52 @@
       gap: 8px;
       font-size: 16px;
     }
-
     .discord-button:hover {
       background-color: #4752c4;
     }
-
     /* Иконка Discord (SVG) */
     .discord-icon {
       width: 20px;
       height: 20px;
       fill: white;
+    }
+
+    /* Блок профиля игрока */
+    #player-profile {
+      background-color: rgba(0, 0, 0, 0.8);
+      border-radius: 10px;
+      padding: 20px;
+      margin-top: 40px;
+      max-width: 800px;
+      display: none; /* Скрыт по умолчанию */
+    }
+    #player-profile .avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      float: left;
+      margin-right: 20px;
+      object-fit: cover;
+      border: 2px solid #fff;
+    }
+    #player-profile h2 {
+      margin-top: 0;
+    }
+    #player-profile p {
+      margin: 6px 0;
+    }
+    #match-history {
+      list-style: none;
+      padding-left: 0;
+      max-height: 200px;
+      overflow-y: auto;
+      margin-top: 10px;
+      border-top: 1px solid #555;
+      padding-top: 10px;
+    }
+    #match-history li {
+      margin-bottom: 6px;
+      font-size: 14px;
     }
   </style>
 </head>
@@ -80,39 +119,215 @@
       </tr>
     </thead>
     <tbody>
-      <tr><td>Raizen</td><td>1.58</td><td>4</td></tr>
-      <tr><td>Kisik4k</td><td>0.44</td><td>4</td></tr>
-      <tr><td>ggg</td><td>0.71</td><td>3</td></tr>
-      <tr><td>Mikula</td><td>1.27</td><td>1</td></tr>
-      <tr><td>D3adl1ne</td><td>0.57</td><td>2</td></tr>
-      <tr><td>幸运</td><td>1.00</td><td>2</td></tr>
-      <tr><td>sazuke</td><td>0.52</td><td>2</td></tr>
-      <tr><td>MelHam</td><td>0.82</td><td>3</td></tr>
-      <tr><td>Lorsky</td><td>0.55</td><td>3</td></tr>
-      <tr><td>Ylllratui2014</td><td>2.52</td><td>4</td></tr>
-      <tr><td>crystallake</td><td>1.09</td><td>3</td></tr>
-      <tr><td>YlllratuiRak</td><td>2.33</td><td>2</td></tr>
-      <tr><td>Silex</td><td>0.48</td><td>2</td></tr>
+      <tr><td data-player-id="raizen">Raizen</td><td>1.58</td><td>4</td></tr>
+      <tr><td data-player-id="kisik4k">Kisik4k</td><td>0.44</td><td>4</td></tr>
+      <tr><td data-player-id="ggg">ggg</td><td>0.71</td><td>3</td></tr>
+      <tr><td data-player-id="mikula">Mikula</td><td>1.27</td><td>1</td></tr>
+      <tr><td data-player-id="d3adl1ne">D3adl1ne</td><td>0.57</td><td>2</td></tr>
+      <tr><td data-player-id="luck">幸运</td><td>1.00</td><td>2</td></tr>
+      <tr><td data-player-id="sazuke">sazuke</td><td>0.52</td><td>2</td></tr>
+      <tr><td data-player-id="melham">MelHam</td><td>0.82</td><td>3</td></tr>
+      <tr><td data-player-id="lorsky">Lorsky</td><td>0.55</td><td>3</td></tr>
+      <tr><td data-player-id="ylllratui2014">Ylllratui2014</td><td>2.52</td><td>4</td></tr>
+      <tr><td data-player-id="crystallake">crystallake</td><td>1.09</td><td>3</td></tr>
+      <tr><td data-player-id="ylllratuirak">YlllratuiRak</td><td>2.33</td><td>2</td></tr>
+      <tr><td data-player-id="silex">Silex</td><td>0.48</td><td>2</td></tr>
     </tbody>
   </table>
 
+  <!-- Блок профиля игрока -->
+  <div id="player-profile">
+    <img id="player-avatar" class="avatar" src="" alt="Аватар игрока" />
+    <div>
+      <h2 id="player-nickname"></h2>
+      <p>K/D: <span id="player-kd"></span></p>
+      <p>Headshot%: <span id="player-headshot"></span></p>
+      <p>MVP: <span id="player-mvp"></span></p>
+      <p>Победы: <span id="player-wins"></span> | Поражения: <span id="player-losses"></span></p>
+      <p>Любимая карта: <span id="player-fav-map"></span></p>
+      <p>Любимое оружие: <span id="player-fav-weapon"></span></p>
+    </div>
+    <canvas id="kdChart" width="400" height="200" style="clear:both; margin-top:20px;"></canvas>
+    <h3>История матчей</h3>
+    <ul id="match-history"></ul>
+  </div>
+
   <script>
     $(document).ready(function () {
+      // Инициализация DataTables
       $('#myTable').DataTable({
         paging: true,
         searching: true,
         ordering: true,
         order: [[1, 'desc']]  // сортировка по KD по убыванию
       });
-    });
-  </script>
 
-  <a href="https://discord.gg/aMrM2vxPqS" target="_blank" class="discord-button" title="Присоединяйся к нашему Discord!">
-    <svg class="discord-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-      <path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C2.533 9.0458 1.873 13.5799 2.298 18.0578a.0824.0824 0 00.0312.0561 19.9 19.9 0 005.9952 3.0375.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057 13.0914 13.0914 0 01-1.872-.8887.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.119.0992.246.1972.372.2915a.0766.0766 0 01-.006.1276 12.578 12.578 0 01-1.873.8888.0766.0766 0 00-.0407.106c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286 19.918 19.918 0 006.005-3.037.082.082 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.21 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1824 0-2.1568-1.0857-2.1568-2.419 0-1.3332.9554-2.4189 2.1568-2.4189 1.21 0 2.1757 1.0952 2.1569 2.419 0 1.3332-.946 2.4189-2.1569 2.4189z"/>
-    </svg>
-    Discord
-  </a>
+      // Пример данных игроков (у тебя тут может быть загрузка из JSON)
+      const playersData = {
+        raizen: {
+          id: 'raizen',
+          nickname: 'Raizen',
+          avatar: 'avatars/raizen.jpg',
+          kd: 1.58,
+          headshot: 45,
+          mvp: 5,
+          wins: 3,
+          losses: 1,
+          favorite_map: 'Dust2',
+          favorite_weapon: 'AWP',
+          matches_played: ['m1','m2','m3','m4']
+        },
+        kisik4k: {
+          id: 'kisik4k',
+          nickname: 'Kisik4k',
+          avatar: 'avatars/kisik4k.jpg',
+          kd: 0.44,
+          headshot: 30,
+          mvp: 1,
+          wins: 1,
+          losses: 3,
+          favorite_map: 'Inferno',
+          favorite_weapon: 'AK-47',
+          matches_played: ['m1','m3','m5','m6']
+        },
+        // Добавь остальные игроков...
+      };
 
-</body>
-</html>
+      // Пример данных матчей
+      const matchesData = {
+        m1: {
+          id: 'm1',
+          date: '2025-05-20',
+          map: 'Dust2',
+          score: '16-12',
+          teams: ['Team A', 'Team B'],
+          players_stats: {
+            raizen: { kills: 25, deaths: 15 },
+            kisik4k: { kills: 10, deaths: 22 }
+          }
+        },
+        m2: {
+          id: 'm2',
+          date: '2025-05-21',
+          map: 'Inferno',
+          score: '14-16',
+          teams: ['Team A', 'Team C'],
+          players_stats: {
+            raizen: { kills: 22, deaths: 20 }
+          }
+        },
+        m3: {
+          id: 'm3',
+          date: '2025-05-22',
+          map: 'Mirage',
+          score: '16-8',
+          teams: ['Team B', 'Team C'],
+          players_stats: {
+            raizen: { kills: 28, deaths: 18 },
+            kisik4k: { kills: 15, deaths: 25 }
+          }
+        },
+        m4: {
+          id: 'm4',
+          date: '2025-05-23',
+          map: 'Nuke',
+          score: '16-14',
+          teams: ['Team A', 'Team D'],
+          players_stats: {
+            raizen: { kills: 30, deaths: 12 }
+          }
+        },
+        m5: {
+          id: 'm5',
+          date: '2025-05-24',
+          map: 'Overpass',
+          score: '10-16',
+          teams: ['Team C', 'Team D'],
+          players_stats: {
+            kisik4k: { kills: 20, deaths: 30 }
+          }
+        },
+        m6: {
+          id: 'm6',
+          date: '2025-05-25',
+          map: 'Train',
+          score: '12-16',
+          teams: ['Team B', 'Team D'],
+          players_stats: {
+            kisik4k: { kills: 12, deaths: 28 }
+          }
+        }
+      };
+
+      // Обработчик клика по имени игрока
+      $('#myTable tbody').on('click', 'td[data-player-id]', function() {
+        const playerId = $(this).data('player-id');
+        const player = playersData[playerId];
+        if (!player) {
+          alert('Данные игрока не найдены');
+          return;
+        }
+
+        // Заполняем профиль
+        $('#player-avatar').attr('src', player.avatar);
+        $('#player-nickname').text(player.nickname);
+        $('#player-kd').text(player.kd.toFixed(2));
+        $('#player-headshot').text(player.headshot + '%');
+        $('#player-mvp').text(player.mvp);
+        $('#player-wins').text(player.wins);
+        $('#player-losses').text(player.losses);
+        $('#player-fav-map').text(player.favorite_map);
+        $('#player-fav-weapon').text(player.favorite_weapon);
+
+        // Готовим данные для графика K/D по матчам
+        const kdData = [];
+        const labels = [];
+
+        player.matches_played.forEach(matchId => {
+          const match = matchesData[matchId];
+          if (match && match.players_stats[playerId]) {
+            const stats = match.players_stats[playerId];
+            const kdRatio = stats.kills / Math.max(1, stats.deaths);
+            kdData.push(kdRatio.toFixed(2));
+            labels.push(`${match.map} (${match.date})`);
+          }
+        });
+
+        // Рисуем график
+        const ctx = document.getElementById('kdChart').getContext('2d');
+        if(window.kdChartInstance) {
+          window.kdChartInstance.destroy();
+        }
+        window.kdChartInstance = new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels: labels,
+            datasets: [{
+              label: 'K/D по матчам',
+              data: kdData,
+              borderColor: 'rgba(75, 192, 192, 1)',
+              backgroundColor: 'rgba(75, 192, 192, 0.2)',
+              fill: true,
+              tension: 0.3,
+              pointRadius: 5,
+            }]
+          },
+          options: {
+            scales: {
+              y: { beginAtZero: true, suggestedMax: 3 }
+            }
+          }
+        });
+
+        // Заполняем историю матчей
+        const historyList = $('#match-history');
+        historyList.empty();
+        player.matches_played.forEach(matchId => {
+          const match = matchesData[matchId];
+          if (match) {
+            const li = $('<li></li>').text(`${match.date} | ${match.map} | Счёт: ${match.score} | Команды: ${match.teams.join(' vs ')}`);
+            historyList.append(li);
+          }
+        });
+
+        // Показываем профиль
