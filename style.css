@@ -32,3 +32,24 @@ th, td {
 th {
   background-color: #3e3e3e;
 }
+
+/* Стили для кнопки Discord */
+.discord-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #5865F2;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  transition: background-color 0.3s ease;
+  z-index: 1000;
+}
+
+.discord-button:hover {
+  background-color: #4752c4;
+}
