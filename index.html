@@ -1,1 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>HLTV Статистика</title>
 
+  <!-- DataTables CSS -->
+  <link rel="stylesheet" href="https://cdn.datatables.net/2.3.1/css/dataTables.dataTables.min.css">
+
+  <!-- DataTables JS -->
+  <script src="https://cdn.datatables.net/2.3.1/js/dataTables.min.js"></script>
+</head>
+<body>
+
+  <h1>Таблица игроков</h1>
+
+  <table id="myTable">
+    <thead>
+      <tr>
+        <th>Имя</th>
+        <th>Рейтинг</th>
+        <th>Убийства</th>
+        <th>Смерти</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Игрок1</td>
+        <td>1.25</td>
+        <td>200</td>
+        <td>150</td>
+      </tr>
+      <tr>
+        <td>Игрок2</td>
+        <td>1.10</td>
+        <td>180</td>
+        <td>170</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Инициализация таблицы -->
+  <script>
+    const table = new DataTable('#myTable');
+  </script>
+
+</body>
+</html>
