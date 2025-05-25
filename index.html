@@ -1,43 +1,45 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>HLTV Статистика</title>
 
-  <!-- DataTables CSS -->
+  <!-- DataTables -->
   <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" />
-
-  <!-- jQuery -->
   <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
-
-  <!-- DataTables JS -->
   <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
 
   <style>
     body {
       font-family: Arial, sans-serif;
+      margin: 40px;
+      background-image: url('cd64dd22-1c68-4f99-bafe-dc3683c5349b.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
       background-color: #121212;
       color: #fff;
-      padding: 40px;
     }
 
     h1 {
       text-align: center;
       margin-bottom: 30px;
+      text-shadow: 0 0 10px black;
     }
 
     table.dataTable {
       background-color: #1e1e1e;
       border-radius: 8px;
-      overflow: hidden;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
       color: #fff;
+      width: 100%;
     }
 
     th, td {
       text-align: center;
     }
 
-    /* Кнопка Discord внизу слева */
     .discord-button {
       position: fixed;
       bottom: 20px;
@@ -52,11 +54,8 @@
       box-shadow: 0 4px 8px rgba(0,0,0,0.3);
       transition: background-color 0.3s ease;
       z-index: 1000;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 16px;
     }
+
     .discord-button:hover {
       background-color: #4752c4;
     }
@@ -66,7 +65,7 @@
 
   <h1>Статистика игроков</h1>
 
-  <table id="playerTable" class="display" style="width:100%">
+  <table id="playerTable" class="display">
     <thead>
       <tr>
         <th>Игрок</th>
@@ -91,7 +90,7 @@
     </tbody>
   </table>
 
-  <!-- Кнопка Discord -->
+  <!-- Discord кнопка -->
   <a href="https://discord.gg/5zS72hyHPX" target="_blank" class="discord-button">
     Перейти в Discord
   </a>
@@ -106,5 +105,6 @@
       });
     });
   </script>
+
 </body>
 </html>
