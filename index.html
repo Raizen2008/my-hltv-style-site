@@ -13,7 +13,7 @@
   <!-- DataTables JS -->
   <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
 
-  <!-- Chart.js для графиков -->
+  <!-- Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
   <style>
@@ -37,7 +37,6 @@
       box-shadow: 0 0 10px rgba(0,0,0,0.5);
     }
 
-    /* Кнопка Discord в углу */
     .discord-button {
       position: fixed;
       bottom: 20px;
@@ -60,21 +59,19 @@
     .discord-button:hover {
       background-color: #4752c4;
     }
-    /* Иконка Discord (SVG) */
     .discord-icon {
       width: 20px;
       height: 20px;
       fill: white;
     }
 
-    /* Блок профиля игрока */
     #player-profile {
       background-color: rgba(0, 0, 0, 0.8);
       border-radius: 10px;
       padding: 20px;
       margin-top: 40px;
       max-width: 800px;
-      display: none; /* Скрыт по умолчанию */
+      display: none;
     }
     #player-profile .avatar {
       width: 100px;
@@ -119,23 +116,22 @@
       </tr>
     </thead>
     <tbody>
-      <tr><td data-player-id="raizen">Raizen</td><td>1.58</td><td>4</td></tr>
-      <tr><td data-player-id="kisik4k">Kisik4k</td><td>0.44</td><td>4</td></tr>
-      <tr><td data-player-id="ggg">ggg</td><td>0.71</td><td>3</td></tr>
-      <tr><td data-player-id="mikula">Mikula</td><td>1.27</td><td>1</td></tr>
-      <tr><td data-player-id="d3adl1ne">D3adl1ne</td><td>0.57</td><td>2</td></tr>
-      <tr><td data-player-id="luck">幸运</td><td>1.00</td><td>2</td></tr>
-      <tr><td data-player-id="sazuke">sazuke</td><td>0.52</td><td>2</td></tr>
-      <tr><td data-player-id="melham">MelHam</td><td>0.82</td><td>3</td></tr>
-      <tr><td data-player-id="lorsky">Lorsky</td><td>0.55</td><td>3</td></tr>
-      <tr><td data-player-id="ylllratui2014">Ylllratui2014</td><td>2.52</td><td>4</td></tr>
-      <tr><td data-player-id="crystallake">crystallake</td><td>1.09</td><td>3</td></tr>
-      <tr><td data-player-id="ylllratuirak">YlllratuiRak</td><td>2.33</td><td>2</td></tr>
-      <tr><td data-player-id="silex">Silex</td><td>0.48</td><td>2</td></tr>
+      <tr data-player-id="raizen"><td>Raizen</td><td>1.58</td><td>4</td></tr>
+      <tr data-player-id="kisik4k"><td>Kisik4k</td><td>0.44</td><td>4</td></tr>
+      <tr data-player-id="ggg"><td>ggg</td><td>0.71</td><td>3</td></tr>
+      <tr data-player-id="mikula"><td>Mikula</td><td>1.27</td><td>1</td></tr>
+      <tr data-player-id="d3adl1ne"><td>D3adl1ne</td><td>0.57</td><td>2</td></tr>
+      <tr data-player-id="luck"><td>幸运</td><td>1.00</td><td>2</td></tr>
+      <tr data-player-id="sazuke"><td>sazuke</td><td>0.52</td><td>2</td></tr>
+      <tr data-player-id="melham"><td>MelHam</td><td>0.82</td><td>3</td></tr>
+      <tr data-player-id="lorsky"><td>Lorsky</td><td>0.55</td><td>3</td></tr>
+      <tr data-player-id="ylllratui2014"><td>Ylllratui2014</td><td>2.52</td><td>4</td></tr>
+      <tr data-player-id="crystallake"><td>crystallake</td><td>1.09</td><td>3</td></tr>
+      <tr data-player-id="ylllratuirak"><td>YlllratuiRak</td><td>2.33</td><td>2</td></tr>
+      <tr data-player-id="silex"><td>Silex</td><td>0.48</td><td>2</td></tr>
     </tbody>
   </table>
 
-  <!-- Блок профиля игрока -->
   <div id="player-profile">
     <img id="player-avatar" class="avatar" src="" alt="Аватар игрока" />
     <div>
@@ -154,15 +150,13 @@
 
   <script>
     $(document).ready(function () {
-      // Инициализация DataTables
       $('#myTable').DataTable({
         paging: true,
         searching: true,
         ordering: true,
-        order: [[1, 'desc']]  // сортировка по KD по убыванию
+        order: [[1, 'desc']]
       });
 
-      // Пример данных игроков (у тебя тут может быть загрузка из JSON)
       const playersData = {
         raizen: {
           id: 'raizen',
@@ -189,86 +183,37 @@
           favorite_map: 'Inferno',
           favorite_weapon: 'AK-47',
           matches_played: ['m1','m3','m5','m6']
-        },
-        // Добавь остальные игроков...
-      };
-
-      // Пример данных матчей
-      const matchesData = {
-        m1: {
-          id: 'm1',
-          date: '2025-05-20',
-          map: 'Dust2',
-          score: '16-12',
-          teams: ['Team A', 'Team B'],
-          players_stats: {
-            raizen: { kills: 25, deaths: 15 },
-            kisik4k: { kills: 10, deaths: 22 }
-          }
-        },
-        m2: {
-          id: 'm2',
-          date: '2025-05-21',
-          map: 'Inferno',
-          score: '14-16',
-          teams: ['Team A', 'Team C'],
-          players_stats: {
-            raizen: { kills: 22, deaths: 20 }
-          }
-        },
-        m3: {
-          id: 'm3',
-          date: '2025-05-22',
-          map: 'Mirage',
-          score: '16-8',
-          teams: ['Team B', 'Team C'],
-          players_stats: {
-            raizen: { kills: 28, deaths: 18 },
-            kisik4k: { kills: 15, deaths: 25 }
-          }
-        },
-        m4: {
-          id: 'm4',
-          date: '2025-05-23',
-          map: 'Nuke',
-          score: '16-14',
-          teams: ['Team A', 'Team D'],
-          players_stats: {
-            raizen: { kills: 30, deaths: 12 }
-          }
-        },
-        m5: {
-          id: 'm5',
-          date: '2025-05-24',
-          map: 'Overpass',
-          score: '10-16',
-          teams: ['Team C', 'Team D'],
-          players_stats: {
-            kisik4k: { kills: 20, deaths: 30 }
-          }
-        },
-        m6: {
-          id: 'm6',
-          date: '2025-05-25',
-          map: 'Train',
-          score: '12-16',
-          teams: ['Team B', 'Team D'],
-          players_stats: {
-            kisik4k: { kills: 12, deaths: 28 }
-          }
         }
       };
 
-      // Обработчик клика по имени игрока
-      $('#myTable tbody').on('click', 'td[data-player-id]', function() {
+      const matchesData = {
+        m1: { date: '2025-05-20', map: 'Dust2', score: '16-12', teams: ['Team A', 'Team B'], players_stats: {
+          raizen: { kills: 25, deaths: 15 },
+          kisik4k: { kills: 10, deaths: 22 }
+        }},
+        m2: { date: '2025-05-21', map: 'Inferno', score: '14-16', teams: ['Team A', 'Team C'], players_stats: {
+          raizen: { kills: 22, deaths: 20 }
+        }},
+        m3: { date: '2025-05-22', map: 'Mirage', score: '16-8', teams: ['Team B', 'Team C'], players_stats: {
+          raizen: { kills: 28, deaths: 18 },
+          kisik4k: { kills: 15, deaths: 25 }
+        }},
+        m4: { date: '2025-05-23', map: 'Nuke', score: '16-14', teams: ['Team A', 'Team D'], players_stats: {
+          raizen: { kills: 30, deaths: 12 }
+        }},
+        m5: { date: '2025-05-24', map: 'Overpass', score: '10-16', teams: ['Team C', 'Team D'], players_stats: {
+          kisik4k: { kills: 20, deaths: 30 }
+        }},
+        m6: { date: '2025-05-25', map: 'Train', score: '12-16', teams: ['Team B', 'Team D'], players_stats: {
+          kisik4k: { kills: 12, deaths: 28 }
+        }}
+      };
+
+      $('#myTable tbody').on('click', 'tr', function () {
         const playerId = $(this).data('player-id');
         const player = playersData[playerId];
-        if (!player) {
-          alert('Данные игрока не найдены');
-          return;
-        }
+        if (!player) return;
 
-        // Заполняем профиль
         $('#player-avatar').attr('src', player.avatar);
         $('#player-nickname').text(player.nickname);
         $('#player-kd').text(player.kd.toFixed(2));
@@ -279,7 +224,6 @@
         $('#player-fav-map').text(player.favorite_map);
         $('#player-fav-weapon').text(player.favorite_weapon);
 
-        // Готовим данные для графика K/D по матчам
         const kdData = [];
         const labels = [];
 
@@ -293,11 +237,8 @@
           }
         });
 
-        // Рисуем график
         const ctx = document.getElementById('kdChart').getContext('2d');
-        if(window.kdChartInstance) {
-          window.kdChartInstance.destroy();
-        }
+        if(window.kdChartInstance) window.kdChartInstance.destroy();
         window.kdChartInstance = new Chart(ctx, {
           type: 'line',
           data: {
@@ -319,7 +260,6 @@
           }
         });
 
-        // Заполняем историю матчей
         const historyList = $('#match-history');
         historyList.empty();
         player.matches_played.forEach(matchId => {
@@ -330,4 +270,9 @@
           }
         });
 
-        // Показываем профиль
+        $('#player-profile').fadeIn();
+      });
+    });
+  </script>
+</body>
+</html>
