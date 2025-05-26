@@ -1,17 +1,12 @@
+<!-- players.html -->
 <!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
   <title>Список игроков</title>
-
-  <!-- DataTables CSS -->
   <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" />
   <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.4.1/css/responsive.dataTables.min.css" />
-
-  <!-- jQuery -->
   <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
-
-  <!-- DataTables JS -->
   <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/responsive/2.4.1/js/dataTables.responsive.min.js"></script>
 
@@ -41,7 +36,6 @@
       text-decoration: none;
       font-weight: 600;
       margin-left: 24px;
-      transition: color 0.3s ease;
     }
     nav a:hover {
       color: #5865F2;
@@ -50,14 +44,12 @@
       text-align: center;
       font-weight: 700;
       margin-bottom: 40px;
-      text-shadow: 0 0 8px rgba(0,0,0,0.8);
       font-size: 2.5rem;
     }
     table.dataTable {
       background-color: #1e1e1e;
       border-radius: 8px;
       box-shadow: 0 0 15px rgba(0,0,0,0.8);
-      width: 100% !important;
       color: #eee;
     }
     th, td {
@@ -66,8 +58,6 @@
     }
     th {
       background-color: #2c2c2c;
-      font-weight: 600;
-      letter-spacing: 0.05em;
     }
     .discord-button {
       position: fixed;
@@ -79,18 +69,14 @@
       border-radius: 30px;
       font-weight: 700;
       text-decoration: none;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       box-shadow: 0 6px 12px rgba(88,101,242,0.6);
-      transition: background-color 0.3s ease, box-shadow 0.3s ease;
-      z-index: 9999;
+      transition: 0.3s ease;
       display: flex;
       align-items: center;
       gap: 8px;
-      user-select: none;
     }
     .discord-button:hover {
       background-color: #4752c4;
-      box-shadow: 0 8px 18px rgba(71,82,196,0.9);
     }
   </style>
 </head>
@@ -119,25 +105,23 @@
       </tr>
     </thead>
     <tbody>
-      <tr><td>Raizen</td><td>1.58</td><td>4</td><td></td></tr>
-      <tr><td>Kisik4k</td><td>0.44</td><td>4</td><td></td></tr>
-      <tr><td>ggg</td><td>0.71</td><td>3</td><td></td></tr>
-      <tr><td>Mikula</td><td>1.27</td><td>1</td><td></td></tr>
-      <tr><td>D3adl1ne</td><td>0.57</td><td>2</td><td>Замена</td></tr>
-      <tr><td>幸运</td><td>1.00</td><td>2</td><td></td></tr>
-      <tr><td>sazuke</td><td>0.52</td><td>2</td><td></td></tr>
-      <tr><td>MelHam</td><td>0.82</td><td>3</td><td></td></tr>
-      <tr><td>Lorsky</td><td>0.55</td><td>3</td><td></td></tr>
-      <tr><td>Ylllratui2014</td><td>2.52</td><td>4</td><td></td></tr>
-      <tr><td>crystallake</td><td>1.09</td><td>3</td><td></td></tr>
-      <tr><td>YlllratuiRak</td><td>2.33</td><td>2</td><td></td></tr>
-      <tr><td>Silex</td><td>0.48</td><td>2</td><td></td></tr>
+      <tr><td><a href="player.html?name=Raizen">Raizen</a></td><td>1.58</td><td>4</td><td></td></tr>
+      <tr><td><a href="player.html?name=Kisik4k">Kisik4k</a></td><td>0.44</td><td>4</td><td></td></tr>
+      <tr><td><a href="player.html?name=ggg">ggg</a></td><td>0.71</td><td>3</td><td></td></tr>
+      <tr><td><a href="player.html?name=Mikula">Mikula</a></td><td>1.27</td><td>1</td><td></td></tr>
+      <tr><td><a href="player.html?name=D3adl1ne">D3adl1ne</a></td><td>0.57</td><td>2</td><td>Замена</td></tr>
+      <tr><td><a href="player.html?name=幸运">幸运</a></td><td>1.00</td><td>2</td><td></td></tr>
+      <tr><td><a href="player.html?name=sazuke">sazuke</a></td><td>0.52</td><td>2</td><td></td></tr>
+      <tr><td><a href="player.html?name=MelHam">MelHam</a></td><td>0.82</td><td>3</td><td></td></tr>
+      <tr><td><a href="player.html?name=Lorsky">Lorsky</a></td><td>0.55</td><td>3</td><td></td></tr>
+      <tr><td><a href="player.html?name=Ylllratui2014">Ylllratui2014</a></td><td>2.52</td><td>4</td><td></td></tr>
+      <tr><td><a href="player.html?name=crystallake">crystallake</a></td><td>1.09</td><td>3</td><td></td></tr>
+      <tr><td><a href="player.html?name=YlllratuiRak">YlllratuiRak</a></td><td>2.33</td><td>2</td><td></td></tr>
+      <tr><td><a href="player.html?name=Silex">Silex</a></td><td>0.48</td><td>2</td><td></td></tr>
     </tbody>
   </table>
 
-  <a href="https://discord.gg/aMrM2vxPqS" target="_blank" class="discord-button">
-    Перейти в Discord
-  </a>
+  <a href="https://discord.gg/aMrM2vxPqS" target="_blank" class="discord-button">Перейти в Discord</a>
 
   <script>
     $(document).ready(function () {
