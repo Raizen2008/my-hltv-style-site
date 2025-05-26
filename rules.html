@@ -55,22 +55,24 @@
       width: 100%;
       border-collapse: collapse;
       margin-bottom: 32px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+      box-shadow: 0 0 15px rgba(0,0,0,0.7);
+      background-color: #222222; /* плотный тёмный фон */
+      border-radius: 8px;
+      overflow: hidden;
     }
     th, td {
       padding: 14px 20px;
       border: 1px solid #333;
+      background-color: #2c2c2c; /* более тёмный фон для ячеек */
+      color: #eee;
     }
     th {
-      background-color: #1e1e1e;
-      color: #f0f0f0;
+      background-color: #1a1a1a; /* чуть темнее для заголовков */
+      font-weight: 700;
       text-align: left;
     }
-    td {
-      background-color: rgba(255,255,255,0.05);
-    }
     tr:hover td {
-      background-color: rgba(255,255,255,0.1);
+      background-color: #3d3d3d;
     }
     .discord-button {
       position: fixed;
