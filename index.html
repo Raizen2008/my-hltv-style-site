@@ -5,15 +5,15 @@
   <title>CS2 Турники — Главная</title>
   <style>
     body {
-      margin: 0; padding: 0;
+      margin: 0; padding: 40px 60px;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #121212;
       color: #eee;
-      background-image: url('https://images.unsplash.com/photo-1602810316497-29c75c38c93e?auto=format&fit=crop&w=1920&q=80');
+      background-image: url('/cd64dd22-1c68-4f99-bafe-dc3683c5349b.png');
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
-      padding: 40px 60px;
+      /* padding сверху и снизу убрал, чтобы обертка не была сдвинута вниз */
     }
     header {
       display: flex; align-items: center; justify-content: space-between;
@@ -34,6 +34,14 @@
     nav a:hover {
       color: #5865F2;
     }
+    main.content-wrapper {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 30px 40px;
+      border-radius: 12px;
+      max-width: 800px;
+      margin: 0 auto;
+      box-shadow: 0 0 20px rgba(0,0,0,0.9);
+    }
     h1 {
       font-weight: 700;
       font-size: 3rem;
@@ -43,7 +51,6 @@
     p {
       font-size: 1.25rem;
       line-height: 1.6;
-      max-width: 720px;
       text-shadow: 0 0 6px rgba(0,0,0,0.7);
     }
     .discord-button {
@@ -80,11 +87,13 @@
     </nav>
   </header>
 
-  <h1>Добро пожаловать на CS2 Турники!</h1>
-  <p>
-    Здесь вы найдете актуальную статистику игроков, информацию о предстоящих турнирах, правила участия и многое другое.
-    Присоединяйтесь к нашему Discord-сообществу, чтобы быть в курсе всех новостей и быстро находить команду.
-  </p>
+  <main class="content-wrapper">
+    <h1>Добро пожаловать на CS2 Турники!</h1>
+    <p>
+      Здесь вы найдете актуальную статистику игроков, информацию о предстоящих турнирах, правила участия и многое другое.
+      Присоединяйтесь к нашему Discord-сообществу, чтобы быть в курсе всех новостей и быстро находить команду.
+    </p>
+  </main>
 
   <a href="https://discord.gg/aMrM2vxPqS" target="_blank" class="discord-button">
     Перейти в Discord
