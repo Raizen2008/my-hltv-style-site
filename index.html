@@ -2,54 +2,49 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <title>CS2 Турики — Главная</title>
+  <title>CS2 Турники — Главная</title>
   <style>
     body {
+      margin: 0; padding: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #121212;
       color: #eee;
-      margin: 0; padding: 0;
       background-image: url('cd64dd22-1c68-4f99-bafe-dc3683c5349b.png');
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
+      padding: 40px 60px;
     }
     header {
-      background-color: #1c1c1c;
-      padding: 20px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.6);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 40px;
+    }
+    header div {
+      font-weight: 700; font-size: 1.8rem;
+      color: #eee;
+      text-shadow: 0 0 8px rgba(0,0,0,0.8);
     }
     nav a {
       color: #eee;
       text-decoration: none;
-      margin: 0 20px;
-      font-weight: bold;
+      font-weight: 600;
+      margin-left: 24px;
       transition: color 0.3s ease;
     }
     nav a:hover {
-      color: #58a6ff;
-    }
-    main {
-      padding: 40px 60px;
-      text-align: center;
+      color: #5865F2;
     }
     h1 {
       font-weight: 700;
-      margin-bottom: 20px;
-      font-size: 2.5rem;
-      text-shadow: 0 0 8px rgba(0,0,0,0.8);
+      font-size: 3rem;
+      margin-bottom: 16px;
+      text-shadow: 0 0 10px rgba(0,0,0,0.8);
     }
     p {
-      font-size: 1.2rem;
-      max-width: 600px;
-      margin: 0 auto;
-      opacity: 0.8;
+      font-size: 1.25rem;
+      line-height: 1.6;
+      max-width: 720px;
+      text-shadow: 0 0 6px rgba(0,0,0,0.7);
     }
     .discord-button {
       position: fixed;
@@ -65,9 +60,6 @@
       box-shadow: 0 6px 12px rgba(88,101,242,0.6);
       transition: background-color 0.3s ease, box-shadow 0.3s ease;
       z-index: 9999;
-      display: flex;
-      align-items: center;
-      gap: 8px;
       user-select: none;
     }
     .discord-button:hover {
@@ -78,22 +70,23 @@
 </head>
 <body>
   <header>
-    <div style="font-weight: bold; font-size: 1.5rem; color: #fff;">CS2 Турики</div>
+    <div>CS2 Турники</div>
     <nav>
+      <a href="index.html">Главная</a>
       <a href="players.html">Игроки</a>
       <a href="tournaments.html">Турниры</a>
-      <a href="news.html">Новости</a>
       <a href="rules.html">Правила</a>
-      <a href="media.html">Медиа</a>
       <a href="about.html">О сайте</a>
     </nav>
   </header>
-  <main>
-    <h1>Добро пожаловать на CS2 Турики!</h1>
-    <p>Здесь вы можете посмотреть статистику игроков, участвовать в турнирах и следить за новостями. Все турниры проходят в нашем Discord-сообществе.</p>
-  </main>
 
-  <a href="https://discord.gg/aMrM2vxPqS" target="_blank" class="discord-button" aria-label="Перейти в Discord">
+  <h1>Добро пожаловать на CS2 Турники!</h1>
+  <p>
+    Здесь вы найдете актуальную статистику игроков, информацию о предстоящих турнирах, правила участия и многое другое.
+    Присоединяйтесь к нашему Discord-сообществу, чтобы быть в курсе всех новостей и быстро находить команду.
+  </p>
+
+  <a href="https://discord.gg/aMrM2vxPqS" target="_blank" class="discord-button">
     Перейти в Discord
   </a>
 </body>
