@@ -2,32 +2,18 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <title>HLTV-подобный сайт статистики</title>
-  
-  <!-- DataTables CSS -->
-  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" />
-  <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.4.1/css/responsive.dataTables.min.css" />
-
-  <!-- jQuery -->
-  <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
-
-  <!-- DataTables JS -->
-  <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-  <script src="https://cdn.datatables.net/responsive/2.4.1/js/dataTables.responsive.min.js"></script>
-
+  <title>CS2 Турики — Главная</title>
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #121212;
       color: #eee;
-      margin: 0;
-      padding: 0;
+      margin: 0; padding: 0;
       background-image: url('cd64dd22-1c68-4f99-bafe-dc3683c5349b.png');
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
     }
-
     header {
       background-color: #1c1c1c;
       padding: 20px 40px;
@@ -39,7 +25,6 @@
       top: 0;
       z-index: 1000;
     }
-
     nav a {
       color: #eee;
       text-decoration: none;
@@ -47,75 +32,25 @@
       font-weight: bold;
       transition: color 0.3s ease;
     }
-
     nav a:hover {
       color: #58a6ff;
     }
-
     main {
       padding: 40px 60px;
+      text-align: center;
     }
-
     h1 {
-      text-align: center;
       font-weight: 700;
-      margin-bottom: 40px;
-      text-shadow: 0 0 8px rgba(0,0,0,0.8);
+      margin-bottom: 20px;
       font-size: 2.5rem;
+      text-shadow: 0 0 8px rgba(0,0,0,0.8);
     }
-
-    table.dataTable {
-      background-color: #1e1e1e;
-      border-radius: 8px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.8);
-      width: 100% !important;
-      color: #eee;
-      margin-bottom: 60px;
-    }
-    th, td {
-      text-align: center;
-      padding: 12px 8px;
-    }
-    th {
-      background-color: #2c2c2c;
-      font-weight: 600;
-      letter-spacing: 0.05em;
-    }
-
-    .tournaments {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-      margin-bottom: 120px;
-    }
-    .tournament-card {
-      background-color: #1f1f1f;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.7);
-      transition: transform 0.2s ease;
-      cursor: pointer;
-      color: #ddd;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .tournament-card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 25px #5865F2;
-    }
-    .tournament-title {
+    p {
       font-size: 1.2rem;
-      font-weight: 700;
-      margin-bottom: 8px;
-      color: #5865F2;
+      max-width: 600px;
+      margin: 0 auto;
+      opacity: 0.8;
     }
-    .tournament-details {
-      font-size: 0.9rem;
-      color: #bbb;
-      flex-grow: 1;
-    }
-
     .discord-button {
       position: fixed;
       bottom: 20px;
@@ -139,102 +74,27 @@
       background-color: #4752c4;
       box-shadow: 0 8px 18px rgba(71,82,196,0.9);
     }
-
-    table.dataTable a {
-      color: #58a6ff;
-      text-decoration: none;
-      font-weight: 600;
-      transition: color 0.3s ease;
-    }
-    table.dataTable a:hover {
-      color: #1e90ff;
-      text-decoration: underline;
-    }
   </style>
 </head>
 <body>
   <header>
     <div style="font-weight: bold; font-size: 1.5rem; color: #fff;">CS2 Турики</div>
     <nav>
-      <a href="#players">Игроки</a>
-      <a href="#tournaments">Турниры</a>
-      <a href="#news">Новости</a>
-      <a href="#rules">Правила</a>
-      <a href="#media">Медиа</a>
-      <a href="#about">О сайте</a>
+      <a href="players.html">Игроки</a>
+      <a href="tournaments.html">Турниры</a>
+      <a href="news.html">Новости</a>
+      <a href="rules.html">Правила</a>
+      <a href="media.html">Медиа</a>
+      <a href="about.html">О сайте</a>
     </nav>
   </header>
-
   <main>
-    <section id="players">
-      <h1>Статистика игроков</h1>
-      <table id="playerTable" class="display responsive nowrap" style="width:100%">
-        <thead>
-          <tr>
-            <th>Игрок</th>
-            <th>K/D</th>
-            <th>Матчи</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td><a href="profiles/Ylllratui2014.html">Ylllratui2014</a></td><td>2.52</td><td>4</td></tr>
-          <tr><td><a href="profiles/kisik4k.html">Kisik4k</a></td><td>0.44</td><td>4</td></tr>
-          <tr><td><a href="profiles/ggg.html">ggg</a></td><td>0.71</td><td>3</td></tr>
-          <tr><td><a href="profiles/Mikula.html">Mikula</a></td><td>1.27</td><td>1</td></tr>
-          <tr><td><a href="profiles/D3adl1ne.html">D3adl1ne</a></td><td>0.57</td><td>2</td></tr>
-          <tr><td><a href="profiles/sazuke.html">sazuke</a></td><td>0.52</td><td>2</td></tr>
-          <tr><td><a href="profiles/MelHam.html">MelHam</a></td><td>0.82</td><td>3</td></tr>
-          <tr><td><a href="profiles/crystallake.html">crystallake</a></td><td>1.09</td><td>3</td></tr>
-          <tr><td><a href="profiles/YlllratuiRak.html">YlllratuiRak</a></td><td>2.33</td><td>2</td></tr>
-        </tbody>
-      </table>
-    </section>
-
-    <section id="tournaments">
-      <h1>Турниры</h1>
-      <div class="tournaments">
-        <div class="tournament-card"><div class="tournament-title">Major 2025 2x2</div><div class="tournament-details">Участников: 10</div></div>
-        <div class="tournament-card"><div class="tournament-title">Summer Showdown 2025</div><div class="tournament-details">Участников: 15</div></div>
-        <div class="tournament-card"><div class="tournament-title">Masters 2025 1x1</div><div class="tournament-details">Участников: 8</div></div>
-        <div class="tournament-card"><div class="tournament-title">Winter Clash 2025</div><div class="tournament-details">Участников: 20</div></div>
-      </div>
-    </section>
-
-    <section id="news">
-      <h1>Новости</h1>
-      <p style="text-align: center; opacity: 0.6;">Скоро здесь появятся свежие новости о турнирах и матчах.</p>
-    </section>
-
-    <section id="rules">
-      <h1>Правила</h1>
-      <p style="text-align: center; opacity: 0.6;">В этом разделе будут указаны правила участия в турнирах.</p>
-    </section>
-
-    <section id="media">
-      <h1>Медиа</h1>
-      <p style="text-align: center; opacity: 0.6;">Фото, клипы, записи матчей и хайлайты скоро появятся тут.</p>
-    </section>
-
-    <section id="about">
-      <h1>О сайте</h1>
-      <p style="text-align: center; opacity: 0.6;">Этот сайт создан для отображения статистики игроков и организации туриков по CS2. Всё по фану.</p>
-    </section>
+    <h1>Добро пожаловать на CS2 Турики!</h1>
+    <p>Здесь вы можете посмотреть статистику игроков, участвовать в турнирах и следить за новостями. Все турниры проходят в нашем Discord-сообществе.</p>
   </main>
 
   <a href="https://discord.gg/aMrM2vxPqS" target="_blank" class="discord-button" aria-label="Перейти в Discord">
     Перейти в Discord
   </a>
-
-  <script>
-    $(document).ready(function () {
-      $('#playerTable').DataTable({
-        responsive: true,
-        order: [[1, 'desc']],
-        language: {
-          url: "https://cdn.datatables.net/plug-ins/1.13.6/i18n/ru.json"
-        }
-      });
-    });
-  </script>
 </body>
 </html>
