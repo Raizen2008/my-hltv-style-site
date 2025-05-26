@@ -1,1 +1,136 @@
+<!-- player.html -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Профиль игрока</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #121212;
+      color: #eee;
+      padding: 40px 60px;
+      background-image: url('cd64dd22-1c68-4f99-bafe-dc3683c5349b.png');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+    .profile {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #1e1e1e;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.7);
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .info {
+      font-size: 1.2rem;
+      line-height: 1.8;
+    }
+    a {
+      color: #58a6ff;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="profile">
+    <h1 id="playerName">Игрок</h1>
+    <div class="info" id="playerInfo"></div>
+  </div>
+
+  <script>
+    const players = {
+      "Raizen": {
+        kd: "1.58",
+        matches: 4,
+        steam: "https://steamcommunity.com/profiles/76561199352748487"
+      },
+      "Kisik4k": {
+        kd: "0.44",
+        matches: 4,
+        steam: "https://steamcommunity.com/profiles/76561199835018201"
+      },
+      "ggg": {
+        kd: "0.71",
+        matches: 3,
+        steam: "https://steamcommunity.com/profiles/76561199722201821"
+      },
+      "Mikula": {
+        kd: "1.27",
+        matches: 1,
+        steam: "https://steamcommunity.com/id/dvereykin85"
+      },
+      "D3adl1ne": {
+        kd: "0.57",
+        matches: 2,
+        steam: "https://steamcommunity.com/profiles/76561199474387117"
+      },
+      "幸运": {
+        kd: "1.00",
+        matches: 2,
+        steam: "https://steamcommunity.com/id/Listo4ekll"
+      },
+      "sazuke": {
+        kd: "0.52",
+        matches: 2,
+        steam: "https://steamcommunity.com/profiles/76561198406304006"
+      },
+      "MelHam": {
+        kd: "0.82",
+        matches: 3,
+        steam: "https://steamcommunity.com/profiles/76561199783618152"
+      },
+      "Lorsky": {
+        kd: "0.55",
+        matches: 3,
+        steam: "https://steamcommunity.com/profiles/76561199821495887"
+      },
+      "Ylllratui2014": {
+        kd: "2.52",
+        matches: 4,
+        steam: "https://steamcommunity.com/profiles/76561199100929395"
+      },
+      "crystallake": {
+        kd: "1.09",
+        matches: 3,
+        steam: "https://steamcommunity.com/profiles/76561199210674002"
+      },
+      "YlllratuiRak": {
+        kd: "2.33",
+        matches: 2,
+        steam: "https://steamcommunity.com/profiles/76561198372286552"
+      },
+      "Silex": {
+        kd: "0.48",
+        matches: 2,
+        steam: "https://steamcommunity.com/profiles/76561199350365121"
+      }
+    };
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const name = urlParams.get("name");
+
+    const player = players[name];
+    if (player) {
+      document.getElementById("playerName").textContent = name;
+      document.getElementById("playerInfo").innerHTML = `
+        <p><strong>K/D:</strong> ${player.kd}</p>
+        <p><strong>Матчи:</strong> ${player.matches}</p>
+        <p><strong>Steam:</strong> <a href="${player.steam}" target="_blank">Профиль</a></p>
+      `;
+    } else {
+      document.getElementById("playerName").textContent = "Игрок не найден";
+      document.getElementById("playerInfo").innerHTML = `<p>Такого игрока нет в базе данных.</p>`;
+    }
+  </script>
+</body>
+</html>
 
