@@ -2,8 +2,8 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <title>HLTV-подобный сайт статистики</title>
-  
+  <title>Статистика игроков</title>
+
   <!-- DataTables CSS -->
   <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" />
   <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.4.1/css/responsive.dataTables.min.css" />
@@ -82,64 +82,6 @@
       letter-spacing: 0.05em;
     }
 
-    .tournaments {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-      margin-bottom: 120px;
-    }
-    .tournament-card {
-      background-color: #1f1f1f;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.7);
-      transition: transform 0.2s ease;
-      cursor: pointer;
-      color: #ddd;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .tournament-card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 25px #5865F2;
-    }
-    .tournament-title {
-      font-size: 1.2rem;
-      font-weight: 700;
-      margin-bottom: 8px;
-      color: #5865F2;
-    }
-    .tournament-details {
-      font-size: 0.9rem;
-      color: #bbb;
-      flex-grow: 1;
-    }
-
-    .discord-button {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #5865F2;
-      color: white;
-      padding: 12px 18px;
-      border-radius: 30px;
-      font-weight: 700;
-      text-decoration: none;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      box-shadow: 0 6px 12px rgba(88,101,242,0.6);
-      transition: background-color 0.3s ease, box-shadow 0.3s ease;
-      z-index: 9999;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      user-select: none;
-    }
-    .discord-button:hover {
-      background-color: #4752c4;
-      box-shadow: 0 8px 18px rgba(71,82,196,0.9);
-    }
-
     table.dataTable a {
       color: #58a6ff;
       text-decoration: none;
@@ -156,7 +98,8 @@
   <header>
     <div style="font-weight: bold; font-size: 1.5rem; color: #fff;">CS2 Турики</div>
     <nav>
-      <a href="#players">Игроки</a>
+      <a href="index.html">Главная</a>
+      <a href="players.html">Статистика</a>
       <a href="#tournaments">Турниры</a>
       <a href="#news">Новости</a>
       <a href="#rules">Правила</a>
@@ -166,64 +109,32 @@
   </header>
 
   <main>
-    <section id="players">
-      <h1>Статистика игроков</h1>
-      <table id="playerTable" class="display responsive nowrap" style="width:100%">
-        <thead>
-          <tr>
-            <th>Игрок</th>
-            <th>K/D</th>
-            <th>Матчи</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td><a href="profiles/Ylllratui2014.html">Ylllratui2014</a></td><td>2.52</td><td>4</td></tr>
-          <tr><td><a href="profiles/kisik4k.html">Kisik4k</a></td><td>0.44</td><td>4</td></tr>
-          <tr><td><a href="profiles/ggg.html">ggg</a></td><td>0.71</td><td>3</td></tr>
-          <tr><td><a href="profiles/Mikula.html">Mikula</a></td><td>1.27</td><td>1</td></tr>
-          <tr><td><a href="profiles/D3adl1ne.html">D3adl1ne</a></td><td>0.57</td><td>2</td></tr>
-          <tr><td><a href="profiles/sazuke.html">sazuke</a></td><td>0.52</td><td>2</td></tr>
-          <tr><td><a href="profiles/MelHam.html">MelHam</a></td><td>0.82</td><td>3</td></tr>
-          <tr><td><a href="profiles/crystallake.html">crystallake</a></td><td>1.09</td><td>3</td></tr>
-          <tr><td><a href="profiles/YlllratuiRak.html">YlllratuiRak</a></td><td>2.33</td><td>2</td></tr>
-        </tbody>
-      </table>
-    </section>
-
-    <section id="tournaments">
-      <h1>Турниры</h1>
-      <div class="tournaments">
-        <div class="tournament-card"><div class="tournament-title">Major 2025 2x2</div><div class="tournament-details">Участников: 10</div></div>
-        <div class="tournament-card"><div class="tournament-title">Summer Showdown 2025</div><div class="tournament-details">Участников: 15</div></div>
-        <div class="tournament-card"><div class="tournament-title">Masters 2025 1x1</div><div class="tournament-details">Участников: 8</div></div>
-        <div class="tournament-card"><div class="tournament-title">Winter Clash 2025</div><div class="tournament-details">Участников: 20</div></div>
-      </div>
-    </section>
-
-    <section id="news">
-      <h1>Новости</h1>
-      <p style="text-align: center; opacity: 0.6;">Скоро здесь появятся свежие новости о турнирах и матчах.</p>
-    </section>
-
-    <section id="rules">
-      <h1>Правила</h1>
-      <p style="text-align: center; opacity: 0.6;">В этом разделе будут указаны правила участия в турнирах.</p>
-    </section>
-
-    <section id="media">
-      <h1>Медиа</h1>
-      <p style="text-align: center; opacity: 0.6;">Фото, клипы, записи матчей и хайлайты скоро появятся тут.</p>
-    </section>
-
-    <section id="about">
-      <h1>О сайте</h1>
-      <p style="text-align: center; opacity: 0.6;">Этот сайт создан для отображения статистики игроков и организации туриков по CS2. Всё по фану.</p>
-    </section>
+    <h1>Статистика игроков</h1>
+    <table id="playerTable" class="display responsive nowrap" style="width:100%">
+      <thead>
+        <tr>
+          <th>Игрок</th>
+          <th>K/D</th>
+          <th>Матчи</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><a href="profiles/Raizen.html">Raizen</a></td><td>1.58</td><td>4</td></tr>
+        <tr><td><a href="profiles/Kisik4k.html">Kisik4k</a></td><td>0.44</td><td>4</td></tr>
+        <tr><td><a href="profiles/ggg.html">ggg</a></td><td>0.71</td><td>3</td></tr>
+        <tr><td><a href="profiles/Mikula.html">Mikula</a></td><td>1.27</td><td>1</td></tr>
+        <tr><td><a href="profiles/D3adl1ne.html">D3adl1ne</a></td><td>0.57</td><td>2</td></tr>
+        <tr><td><a href="profiles/幸运.html">幸运</a></td><td>1.00</td><td>2</td></tr>
+        <tr><td><a href="profiles/sazuke.html">sazuke</a></td><td>0.52</td><td>2</td></tr>
+        <tr><td><a href="profiles/MelHam.html">MelHam</a></td><td>0.82</td><td>3</td></tr>
+        <tr><td><a href="profiles/Lorsky.html">Lorsky</a></td><td>0.55</td><td>3</td></tr>
+        <tr><td><a href="profiles/Ylllratui2014.html">Ylllratui2014</a></td><td>2.52</td><td>4</td></tr>
+        <tr><td><a href="profiles/crystallake.html">crystallake</a></td><td>1.09</td><td>3</td></tr>
+        <tr><td><a href="profiles/YlllratuiRak.html">YlllratuiRak</a></td><td>2.33</td><td>2</td></tr>
+        <tr><td><a href="profiles/Silex.html">Silex</a></td><td>0.48</td><td>2</td></tr>
+      </tbody>
+    </table>
   </main>
-
-  <a href="https://discord.gg/aMrM2vxPqS" target="_blank" class="discord-button" aria-label="Перейти в Discord">
-    Перейти в Discord
-  </a>
 
   <script>
     $(document).ready(function () {
