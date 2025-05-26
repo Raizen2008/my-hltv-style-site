@@ -1,139 +1,135 @@
-<!-- players.html -->
+<!-- player.html -->
 <!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <title>Список игроков</title>
-  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" />
-  <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.4.1/css/responsive.dataTables.min.css" />
-  <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
-  <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-  <script src="https://cdn.datatables.net/responsive/2.4.1/js/dataTables.responsive.min.js"></script>
-
+  <title>Профиль игрока</title>
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #121212;
       color: #eee;
-      margin: 0;
       padding: 40px 60px;
       background-image: url('cd64dd22-1c68-4f99-bafe-dc3683c5349b.png');
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
     }
-    header {
-      display: flex; align-items: center; justify-content: space-between;
-      margin-bottom: 40px;
-    }
-    header div {
-      font-weight: 700; font-size: 1.8rem;
-      color: #eee;
-      text-shadow: 0 0 8px rgba(0,0,0,0.8);
-    }
-    nav a {
-      color: #eee;
-      text-decoration: none;
-      font-weight: 600;
-      margin-left: 24px;
-    }
-    nav a:hover {
-      color: #5865F2;
+    .profile {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #1e1e1e;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.7);
     }
     h1 {
       text-align: center;
-      font-weight: 700;
-      margin-bottom: 40px;
-      font-size: 2.5rem;
+      margin-bottom: 20px;
     }
-    table.dataTable {
-      background-color: #1e1e1e;
-      border-radius: 8px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.8);
-      color: #eee;
+    .info {
+      font-size: 1.2rem;
+      line-height: 1.8;
     }
-    th, td {
-      text-align: center;
-      padding: 12px 8px;
-    }
-    th {
-      background-color: #2c2c2c;
-    }
-    .discord-button {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #5865F2;
-      color: white;
-      padding: 12px 18px;
-      border-radius: 30px;
-      font-weight: 700;
+    a {
+      color: #58a6ff;
       text-decoration: none;
-      box-shadow: 0 6px 12px rgba(88,101,242,0.6);
-      transition: 0.3s ease;
-      display: flex;
-      align-items: center;
-      gap: 8px;
     }
-    .discord-button:hover {
-      background-color: #4752c4;
+    a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-
-  <header>
-    <div>CS2 Турниры</div>
-    <nav>
-      <a href="index.html">Главная</a>
-      <a href="players.html">Игроки</a>
-      <a href="tournaments.html">Турниры</a>
-      <a href="rules.html">Правила</a>
-      <a href="about.html">О сайте</a>
-    </nav>
-  </header>
-
-  <h1>Список игроков</h1>
-
-  <table id="playersTable" class="display responsive nowrap" style="width:100%">
-    <thead>
-      <tr>
-        <th>Игрок</th>
-        <th>K/D</th>
-        <th>Матчи</th>
-        <th>Примечание</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr><td><a href="player.html?name=Raizen">Raizen</a></td><td>1.58</td><td>4</td><td></td></tr>
-      <tr><td><a href="player.html?name=Kisik4k">Kisik4k</a></td><td>0.44</td><td>4</td><td></td></tr>
-      <tr><td><a href="player.html?name=ggg">ggg</a></td><td>0.71</td><td>3</td><td></td></tr>
-      <tr><td><a href="player.html?name=Mikula">Mikula</a></td><td>1.27</td><td>1</td><td></td></tr>
-      <tr><td><a href="player.html?name=D3adl1ne">D3adl1ne</a></td><td>0.57</td><td>2</td><td>Замена</td></tr>
-      <tr><td><a href="player.html?name=幸运">幸运</a></td><td>1.00</td><td>2</td><td></td></tr>
-      <tr><td><a href="player.html?name=sazuke">sazuke</a></td><td>0.52</td><td>2</td><td></td></tr>
-      <tr><td><a href="player.html?name=MelHam">MelHam</a></td><td>0.82</td><td>3</td><td></td></tr>
-      <tr><td><a href="player.html?name=Lorsky">Lorsky</a></td><td>0.55</td><td>3</td><td></td></tr>
-      <tr><td><a href="player.html?name=Ylllratui2014">Ylllratui2014</a></td><td>2.52</td><td>4</td><td></td></tr>
-      <tr><td><a href="player.html?name=crystallake">crystallake</a></td><td>1.09</td><td>3</td><td></td></tr>
-      <tr><td><a href="player.html?name=YlllratuiRak">YlllratuiRak</a></td><td>2.33</td><td>2</td><td></td></tr>
-      <tr><td><a href="player.html?name=Silex">Silex</a></td><td>0.48</td><td>2</td><td></td></tr>
-    </tbody>
-  </table>
-
-  <a href="https://discord.gg/aMrM2vxPqS" target="_blank" class="discord-button">Перейти в Discord</a>
+  <div class="profile">
+    <h1 id="playerName">Игрок</h1>
+    <div class="info" id="playerInfo"></div>
+  </div>
 
   <script>
-    $(document).ready(function () {
-      $('#playersTable').DataTable({
-        responsive: true,
-        order: [[1, 'desc']],
-        language: {
-          url: "https://cdn.datatables.net/plug-ins/1.13.6/i18n/ru.json"
-        }
-      });
-    });
-  </script>
+    const players = {
+      "Raizen": {
+        kd: "1.58",
+        matches: 4,
+        steam: "https://steamcommunity.com/profiles/76561199352748487"
+      },
+      "Kisik4k": {
+        kd: "0.44",
+        matches: 4,
+        steam: "https://steamcommunity.com/profiles/76561199835018201"
+      },
+      "ggg": {
+        kd: "0.71",
+        matches: 3,
+        steam: "https://steamcommunity.com/profiles/76561199722201821"
+      },
+      "Mikula": {
+        kd: "1.27",
+        matches: 1,
+        steam: "https://steamcommunity.com/id/dvereykin85"
+      },
+      "D3adl1ne": {
+        kd: "0.57",
+        matches: 2,
+        steam: "https://steamcommunity.com/profiles/76561199474387117"
+      },
+      "幸运": {
+        kd: "1.00",
+        matches: 2,
+        steam: "https://steamcommunity.com/id/Listo4ekll"
+      },
+      "sazuke": {
+        kd: "0.52",
+        matches: 2,
+        steam: "https://steamcommunity.com/profiles/76561198406304006"
+      },
+      "MelHam": {
+        kd: "0.82",
+        matches: 3,
+        steam: "https://steamcommunity.com/profiles/76561199783618152"
+      },
+      "Lorsky": {
+        kd: "0.55",
+        matches: 3,
+        steam: "https://steamcommunity.com/profiles/76561199821495887"
+      },
+      "Ylllratui2014": {
+        kd: "2.52",
+        matches: 4,
+        steam: "https://steamcommunity.com/profiles/76561199100929395"
+      },
+      "crystallake": {
+        kd: "1.09",
+        matches: 3,
+        steam: "https://steamcommunity.com/profiles/76561199210674002"
+      },
+      "YlllratuiRak": {
+        kd: "2.33",
+        matches: 2,
+        steam: "https://steamcommunity.com/profiles/76561198372286552"
+      },
+      "Silex": {
+        kd: "0.48",
+        matches: 2,
+        steam: "https://steamcommunity.com/profiles/76561199350365121"
+      }
+    };
 
+    const urlParams = new URLSearchParams(window.location.search);
+    const name = urlParams.get("name");
+
+    const player = players[name];
+    if (player) {
+      document.getElementById("playerName").textContent = name;
+      document.getElementById("playerInfo").innerHTML = `
+        <p><strong>K/D:</strong> ${player.kd}</p>
+        <p><strong>Матчи:</strong> ${player.matches}</p>
+        <p><strong>Steam:</strong> <a href="${player.steam}" target="_blank">Профиль</a></p>
+      `;
+    } else {
+      document.getElementById("playerName").textContent = "Игрок не найден";
+      document.getElementById("playerInfo").innerHTML = `<p>Такого игрока нет в базе данных.</p>`;
+    }
+  </script>
 </body>
 </html>
