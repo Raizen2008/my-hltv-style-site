@@ -14,7 +14,7 @@
       background-position: center;
       background-attachment: fixed;
       line-height: 1.6;
-      max-width: 800px;
+      max-width: 1000px;
       margin-left: auto;
       margin-right: auto;
     }
@@ -45,15 +45,32 @@
       text-shadow: 0 0 8px rgba(0,0,0,0.8);
     }
     h2 {
-      margin-top: 32px;
+      margin-top: 40px;
       margin-bottom: 12px;
       font-weight: 700;
       font-size: 1.8rem;
       color: #ccc;
     }
-    ul {
-      margin-left: 20px;
-      margin-bottom: 24px;
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 32px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    }
+    th, td {
+      padding: 14px 20px;
+      border: 1px solid #333;
+    }
+    th {
+      background-color: #1e1e1e;
+      color: #f0f0f0;
+      text-align: left;
+    }
+    td {
+      background-color: rgba(255,255,255,0.05);
+    }
+    tr:hover td {
+      background-color: rgba(255,255,255,0.1);
     }
     .discord-button {
       position: fixed;
@@ -92,25 +109,76 @@
   <h1>Правила турниров</h1>
 
   <h2>Общие правила</h2>
-  <ul>
-    <li>Все участники должны соблюдать спортивный дух и уважать соперников.</li>
-    <li>Запрещены любые формы читерства и мошенничества.</li>
-    <li>Запрещается использование багов и эксплойтов игры.</li>
-    <li>В случае нарушения правил команда может быть дисквалифицирована.</li>
-  </ul>
+  <table>
+    <thead>
+      <tr>
+        <th>Правило</th>
+        <th>Описание</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Спортивное поведение</td>
+        <td>Все участники должны соблюдать спортивный дух и уважать соперников.</td>
+      </tr>
+      <tr>
+        <td>Запрет на читы</td>
+        <td>Запрещены любые формы читерства и мошенничества.</td>
+      </tr>
+      <tr>
+        <td>Эксплойты</td>
+        <td>Нельзя использовать баги и уязвимости игры.</td>
+      </tr>
+      <tr>
+        <td>Наказания</td>
+        <td>В случае нарушения правил команда может быть дисквалифицирована.</td>
+      </tr>
+    </tbody>
+  </table>
 
   <h2>Формат турнира</h2>
-  <ul>
-    <li>Турниры проводятся в формате 5 на 5.</li>
-    <li>Каждая карта играется до 16 побед.</li>
-    <li>Формат матчей – bo3 (лучший из 3).</li>
-  </ul>
+  <table>
+    <thead>
+      <tr>
+        <th>Параметр</th>
+        <th>Значение</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Формат</td>
+        <td>5 на 5</td>
+      </tr>
+      <tr>
+        <td>До скольки раундов</td>
+        <td>До 16 побед</td>
+      </tr>
+      <tr>
+        <td>Формат матчей</td>
+        <td>bo3 (лучший из трёх)</td>
+      </tr>
+    </tbody>
+  </table>
 
   <h2>Регистрация</h2>
-  <ul>
-    <li>Для участия необходимо зарегистрироваться заранее.</li>
-    <li>Игроки должны иметь аккаунты в Discord для связи с организаторами.</li>
-  </ul>
+  <table>
+    <thead>
+      <tr>
+        <th>Требование</th>
+        <th>Описание</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Предварительная регистрация</td>
+        <td>Участники должны зарегистрироваться до начала турнира.</td>
+      </tr>
+      <tr>
+        <td>Discord</td>
+        <td>Наличие аккаунта Discord обязательно для связи с организаторами.</td>
+      </tr>
+    </tbody>
+  </table>
 
   <a href="https://discord.gg/aMrM2vxPqS" target="_blank" class="discord-button">
     Перейти в Discord
