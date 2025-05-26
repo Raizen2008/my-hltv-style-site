@@ -38,37 +38,12 @@
     a:hover {
       text-decoration: underline;
     }
-    /* Новый стиль для блока наград */
-    .awards {
-      margin-top: 30px;
-      text-align: center;
-      border-top: 1px solid #444;
-      padding-top: 20px;
-    }
-    .awards img {
-      max-width: 150px;
-      border-radius: 8px;
-      box-shadow: 0 0 12px #ffdd00;
-    }
-    .awards-title {
-      color: #ffdd00;
-      font-weight: 700;
-      margin-bottom: 15px;
-      font-size: 1.4rem;
-      text-shadow: 0 0 8px #ffdd00;
-    }
   </style>
 </head>
 <body>
   <div class="profile">
     <h1 id="playerName">Игрок</h1>
     <div class="info" id="playerInfo"></div>
-
-    <!-- Контейнер для наград -->
-    <div id="awardsContainer" class="awards" style="display:none;">
-      <div class="awards-title">Награды</div>
-      <img src="mvpOld.webp" alt="MVP турнира" title="MVP турнира" />
-    </div>
   </div>
 
   <script>
@@ -131,4 +106,30 @@
       "YlllratuiRak": {
         kd: "2.33",
         matches: 2,
-        steam: "https://steamcommunity.com/profiles/765611983722865
+        steam: "https://steamcommunity.com/profiles/76561198372286552"
+      },
+      "Silex": {
+        kd: "0.48",
+        matches: 2,
+        steam: "https://steamcommunity.com/profiles/76561199350365121"
+      }
+    };
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const name = urlParams.get("name");
+
+    const player = players[name];
+    if (player) {
+      document.getElementById("playerName").textContent = name;
+      document.getElementById("playerInfo").innerHTML = 
+        <p><strong>K/D:</strong> ${player.kd}</p>
+        <p><strong>Матчи:</strong> ${player.matches}</p>
+        <p><strong>Steam:</strong> <a href="${player.steam}" target="_blank">Профиль</a></p>
+      ;
+    } else {
+      document.getElementById("playerName").textContent = "Игрок не найден";
+      document.getElementById("playerInfo").innerHTML = <p>Такого игрока нет в базе данных.</p>;
+    }
+  </script>
+</body>
+</html>
